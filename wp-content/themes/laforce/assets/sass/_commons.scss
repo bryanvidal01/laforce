@@ -1,0 +1,500 @@
+// Text defilement
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 15s linear infinite;
+  will-change: transform;
+  animation-play-state: paused;
+}
+
+.marquee span {
+  font-size: 8vw;
+  text-transform: uppercase;
+
+  strong{
+    margin: .5vw;
+    &:nth-child(1){
+      font-family: 'RightGrotesk-TightMedium';
+    }
+    &:nth-child(2){
+      font-family: 'RightGrotesk-SpatialBlack';
+    }
+    &:nth-child(3){
+      font-family: 'RightGrotesk-NarrowLight';
+    }
+  }
+}
+
+.marquee .marquee__inner {
+  animation-play-state: running;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+.color-violet{
+  color: $color_violet;
+  border-color: $color_violet !important;
+}
+.color-green{
+  color: $color_green;
+}
+
+.color-blue{
+  color: $color_blue;
+}
+
+.font_RightGrotesk-TightMedium{
+  font-family: $font_RightGrotesk-TightMedium;
+}
+
+.font_RightGrotesk-SpatialBlack {
+  font-family: $font_RightGrotesk-SpatialBlack ;
+}
+
+.font_RightGrotesk-CompactBlack{
+  font-family: $font_RightGrotesk-CompactBlack;
+}
+.font_RightGrotesk-TallFine{
+  font-family: $font_RightGrotesk-TallFine;
+}
+.font_RightGrotesk-Medium{
+  font-family: $font_RightGrotesk-Medium;
+}
+.font_RightGrotesk-NarrowLight{
+  font-family: $font_RightGrotesk-NarrowLight;
+}
+.font_RightGrotesk-WideMedium{
+  font-family: $font_RightGrotesk-WideMedium;
+}
+
+.border-dot{
+  font-size: 50px;
+  text-transform: uppercase;
+  border-bottom: 2px dashed $color_green;
+}
+
+
+.mockupPhone{
+  border-radius: 2vw;
+  overflow: hidden;
+  display: inline-block;
+  border: .7vw solid #FFF;
+  background: #FFF;
+  position: relative;
+  width: 18vw;
+  height: 34vw;
+  box-shadow: 0 0 2vw rgba(#000, .2);
+
+  &:before{
+    content: '';
+    width: 50%;
+    height: 1vw;
+    background: #FFF;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 3;
+    border-radius: 0 0 30px 30px;
+    transform: translateX(-50%);
+  }
+
+  &:after{
+    content: '';
+    width: 15%;
+    height: .2vw;
+    background: #e9e9ed;
+    position: absolute;
+    top: .3vw;
+    border-radius: 4px;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+  }
+
+  img, video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 1vw;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+
+
+.title-intro-section{
+  font-family: $font_RightGrotesk-WideMedium;
+  font-size: 16px;
+}
+
+
+.hero-home{
+  background: $color_violet;
+  color: $color_green;
+  text-transform: uppercase;
+  font-size: 150px;
+  letter-spacing: -1px;
+  line-height: 110px;
+  height: 555px;
+  position: relative;
+
+  .font_RightGrotesk-TightMedium{
+    font-size: 240px;
+    line-height: 200px;
+  }
+
+  .text-center{
+    position: absolute;
+    top: 180px;
+    width: 100%;
+    z-index: 5;
+  }
+}
+
+.image-full-width-home{
+  width: 100%;
+  height: 630px;
+  overflow: hidden;
+
+  img{
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.section-introduction{
+  background: $color_violet;
+  color: $color_green;
+  padding: 4vw 0 6vw;
+  margin-bottom: 3vw;
+
+  .container-introduction{
+    font-size: 10vw;
+    text-align: center;
+    line-height: 130px;
+    letter-spacing: -.1vw;
+    text-transform: uppercase;
+    padding: 4vw 110px;
+    div{
+      margin: 1vw 0;
+    }
+
+    .img-1, .img-2, .img-3{
+      display: inline-block;
+      img{
+        width: 12vw;
+        display: block;
+      }
+    }
+  }
+}
+
+
+.listing-projects{
+  position: relative;
+  margin-top: 4vw;
+  .container-mockup{
+    width: 50%;
+    background: #d96333;
+    transition: .8s background-color;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .mockupPhone{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.fixed{
+      position: fixed;
+
+      &.end-fixed{
+        position: absolute;
+        bottom: 0;
+        top: auto;
+      }
+    }
+  }
+
+  .project{
+    height: 100vh;
+    position: relative;
+    width: 50%;
+    .container-info-project{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      font-size: 3.5vw;
+      line-height: 3.5vw;
+      transform: translate(-50%, -50%);
+
+
+      .description-project{
+        font-size: 18px;
+        line-height: 24px;
+        color: #838383;
+        margin-top: 30px;
+        display: block;
+      }
+
+      .logo{
+        margin-bottom: 55px;
+      }
+
+    }
+  }
+}
+
+
+.section-all-works{
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+}
+
+
+.section-temoignage{
+  background: #e3b9d3;
+  padding: 4vw 0;
+  color: #36265f;
+
+  .container-title-section{
+    font-size: 10vw;
+    text-align: center;
+    line-height: 9vw;
+    margin: 4vw 0;
+    text-transform: uppercase;
+  }
+
+  .temoignage-container{
+    margin-bottom: 40px;
+    padding: 0 30px;
+    .temoignage-content{
+      font-size: 26px;
+    }
+    .temoignage-author{
+      margin-top: 10px;
+    }
+  }
+}
+
+
+.section-team{
+  background: #36265f;
+  padding: 4vw 0 3vw;
+
+  .container-title-section{
+    font-size: 10vw;
+    text-align: center;
+    span{
+      margin: 0 .5vw;
+    }
+  }
+
+  .container-images-teams{
+    position: absolute;
+    top: 50%;
+    left: 10vw;
+    transform: translateY(-50%);
+
+    .pagination-next{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      z-index: 30;
+      height: 6vw;
+      width: 6vw;
+      border: 0;
+      background: #000;
+      border-radius: 50%;
+      transform: translate(50%, -100%);
+    }
+
+    .list-images{
+      width: 26vw;
+      height: 34vw;
+    }
+
+    img{
+      position: absolute;
+      width: 100%;
+      transition: .8s;
+    }
+
+    li{
+
+      img.hidden{
+        transform: translateX(300px) !important;
+        opacity: 0;
+      }
+
+
+      &:nth-child(5){
+        img{
+          transform: rotate(10deg);
+          z-index: 1;
+        }
+      }
+      &:nth-child(4){
+        img{
+          transform: rotate(5deg);
+          z-index: 2;
+        }
+      }
+      &:nth-child(3){
+        img{
+          transform: rotate(-0deg);
+          z-index: 3;
+        }
+      }
+      &:nth-child(2){
+        img{
+          transform: rotate(-5deg);
+          z-index: 4;
+        }
+      }
+      &:nth-child(1){
+        img{
+          transform: rotate(-10deg);
+          z-index: 5;
+        }
+      }
+    }
+  }
+
+  .list-team{
+    position: relative;
+  }
+
+  .container-content-teams{
+    width: 30%;
+    margin-left: 50%;
+    padding-top: 12vw;
+    min-height: 45vw;
+    padding-bottom: 2vw;
+    position: relative;
+
+    li{
+      opacity: 0;
+      position: absolute;
+      transition: .5s;
+      &.visible{
+        opacity: 1;
+      }
+    }
+
+    .name-team{
+      font-size: 4vw;
+      line-height: 3vw;
+      text-transform: uppercase;
+    }
+
+    .subname-team{
+      font-size: 4vw;
+      line-height: 3vw;
+    }
+
+    .function, .description{
+      color: #FFF;
+      margin-top: 1.5vw;
+    }
+
+
+  }
+}
+
+
+.section-instagram{
+  background: $color_violet;
+  padding: 12vw 0 20vw;
+  text-align: center;
+  position: relative;
+
+  .container-title-section{
+    font-size: 10vw;
+    line-height: 9vw;
+    position: relative;
+    z-index: 5;
+  }
+
+  .posts-insta{
+    img{
+      position: absolute;
+    }
+    .image-1{
+      width: 12vw;
+      left: 2vw;
+      top: 5vw;
+    }
+    .image-2{
+      width: 10vw;
+      left: 16vw;
+      top: 10vw;
+    }
+    .image-3{
+      width: 19vw;
+      left: 50%;
+      top: 0;
+    }
+    .image-4{
+      width: 19vw;
+      left: 2vw;
+      bottom: 6vw;
+      z-index: 6;
+    }
+    .image-5{
+      width: 12vw;
+      left: 50%;
+      bottom: 6vw;
+      z-index: 6;
+    }
+    .image-6{
+      width: 12vw;
+      left: 65%;
+      bottom: 1vw;
+      z-index: 6;
+    }
+    .image-7{
+      width: 17vw;
+      right: 2vw;
+      bottom: 9vw;
+      z-index: 6;
+    }
+  }
+
+  .link-insta{
+    color: $color_green;
+    font-family: $font_RightGrotesk-WideMedium;
+    font-size: 18px;
+    line-height: 22px;
+    display: inherit;
+    padding-top: 2vw;
+    text-transform: none;
+  }
+
+}

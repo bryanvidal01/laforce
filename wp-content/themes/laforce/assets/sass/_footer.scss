@@ -1,0 +1,73 @@
+.footer{
+  background: $color_violet;
+  border-top: 1px solid $color_green;
+  border-bottom: 1px solid $color_green;
+
+  .social{
+    width: 40%;
+    float: left;
+    ul{
+      margin-bottom: 0;
+    }
+    li{
+      display: block;
+      width: 50%;
+      float: left;
+      a{
+        text-transform: uppercase;
+        font-size: 4vw;
+        display: block;
+        padding-left: 2vw;
+        border-right: 1px solid $color_green;
+      }
+
+      &:nth-child(1), &:nth-child(2){
+        border-bottom: 1px solid $color_green;
+      }
+    }
+  }
+
+  .copyright{
+    text-align: right;
+    float: left;
+    width: 60%;
+    font-size: 10vw;
+    line-height: 11vw;
+    padding-right: 2vw;
+    color: $color_green;
+
+    img{
+      width: 16vw;
+      display: block;
+      float: left;
+      margin: 2vw;
+    }
+  }
+}
+
+.sub-footer{
+  background-color: $color_violet;
+  padding: 2vw;
+
+  p{
+    margin-bottom: 0;
+  }
+  .slogan{
+    color: $color_green;
+    float: left;
+  }
+
+  .nav-sup{
+    float: right;
+    ul{
+      margin-bottom: 0;
+    }
+    li{
+      display: inline-block;
+      margin-left: 30px;
+      a{
+        color: #FFF;
+      }
+    }
+  }
+}

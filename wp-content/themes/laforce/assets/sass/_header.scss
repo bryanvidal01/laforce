@@ -1,0 +1,138 @@
+.button-navigation{
+  position: absolute;
+  right: 2vw;
+  top: 2vw;
+  cursor: pointer;
+  z-index: 180;
+
+  text-transform: uppercase;
+  color: $color_green;
+  padding-right: 70px;
+  .bar{
+    width: 60px;
+    height: 2px;
+    background: $color_green;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-2px);
+    &.first{
+      bottom: 5px;
+      top: auto;
+    }
+
+    &.second{
+      top: 7px;
+    }
+
+  }
+}
+
+.logo-site{
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2vw;
+
+  g{
+    fill: $color_green;
+    filter: none;
+  }
+}
+
+
+.navigation-content{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #3c2452;
+  z-index: 150;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+
+  .mockup-1{
+    position: absolute;
+    width: 40%;
+    left: -8vw;
+    top: -7vw;
+    transform: rotate(-10deg);
+    transition: 8s;
+    animation-direction: normal, reverse;
+  }
+  .mockup-2{
+    position: absolute;
+    width: 30%;
+    right: -5vw;
+    transform: rotate(-10deg);
+    transition: 8s;
+    animation-direction: normal, reverse;
+  }
+
+  .navigation-first{
+    width: 100%;
+    text-align: center;
+    font-size: 7vw;
+    line-height: 7vw;
+    text-transform: uppercase;
+    color: $color_green;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    transition: .8s;
+  }
+
+  .container-bottom-header{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0 2vw 2vw;
+    color: #FFF;
+
+    .sub-link{
+      font-family: $font_RightGrotesk-TightMedium;
+      color: $color_green;
+      font-size: 2vw;
+      text-transform: uppercase;
+    }
+
+    .title-bottom-header{
+      color: $color_green;
+      font-size: 2.8vw;
+      text-transform: uppercase;
+    }
+
+    .info-contact{
+      line-height: 2.1vw;
+    }
+
+    .social-menu{
+      font-family: $font_RightGrotesk-TightMedium;
+      text-transform: uppercase;
+      font-size: 1.9vw;
+      line-height: 2vw;
+      color: $color_green;
+    }
+  }
+}
+
+
+.nav-open{
+  .navigation-content{
+    visibility: visible;
+    opacity: 1;
+
+
+    .mockup-2, .mockup-1{
+      transform: rotate(0);
+    }
+
+    .navigation-first{
+      transform: translateY(-70%);
+    }
+  }
+}
