@@ -23,6 +23,7 @@
 
   strong{
     margin: .5vw;
+    white-space: nowrap;
     &:nth-child(1){
       font-family: 'RightGrotesk-TightMedium';
     }
@@ -428,7 +429,9 @@
   }
 }
 
-
+.visible-mobile{
+  display: none;
+}
 .section-instagram{
   background: $color_violet;
   padding: 12vw 0 20vw;

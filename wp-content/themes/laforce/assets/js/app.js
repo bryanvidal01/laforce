@@ -98,6 +98,7 @@ window.onload = function(){
         draggable: false
     });
 
+    const swup = new Swup();
 
 }
 

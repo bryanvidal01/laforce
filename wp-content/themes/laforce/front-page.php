@@ -89,6 +89,11 @@ get_header();
             <p class="description-project">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             </p>
+            <div class="container-mockup-mobile visible-mobile" style="background-color: #d96333;">
+                <div class="mockupPhone">
+                    <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
+                </div>
+            </div>
         </div>
     </div>
     <div class="project" data-id="project-2" data-color="#2ca480">
@@ -105,6 +110,11 @@ get_header();
             <p class="description-project">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             </p>
+            <div class="container-mockup-mobile visible-mobile" style="background-color: #2ca480;">
+                <div class="mockupPhone">
+                    <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
+                </div>
+            </div>
         </div>
     </div>
     <div class="project" data-id="project-3" data-color="#2e3487">
@@ -121,6 +131,11 @@ get_header();
             <p class="description-project">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             </p>
+            <div class="container-mockup-mobile visible-mobile" style="background-color: #2e3487;">
+                <div class="mockupPhone">
+                    <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -272,25 +287,6 @@ get_header();
     </div>
 </section>
 
-<section class="section-instagram">
-
-    <div class="posts-insta">
-        <img src="http://fakeimg.pl/800x800/" class="image-1" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-2" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-3" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-4" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-5" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-6" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-7" alt="">
-    </div>
-
-    <div class="container-title-section text-uppercase color-green">
-        <div class="font_RightGrotesk-TightMedium">MIAM STRAM gram</div>
-        <div class="font_RightGrotesk-SpatialBlack">instagram</div>
-        <div>
-            <a href="" class="link-insta">@lafcrceagency</a>
-        </div>
-    </div>
-</section>
+<?php lsd_get_template_part('general', 'block', 'instagram'); ?>
 <?php
 get_footer();

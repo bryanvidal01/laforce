@@ -24,12 +24,12 @@ get_header();
             </div>
         </div>
         <div class="row sup-info-hero">
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-4">
                 <div class="date font_RightGrotesk-TightMedium">
                     2020
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 col-8">
                 <div class="category font_RightGrotesk-CompactBlack text-uppercase">
                     Brand strategy <br/>
                     Social media

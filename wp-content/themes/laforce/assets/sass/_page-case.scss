@@ -16,10 +16,6 @@
     }
   }
 
-  .intro-archive{
-    padding-top: 7vw;
-  }
-
   .marquee{
     color: $color_clear_blue;
 
@@ -27,6 +23,11 @@
       color: $color_clear_blue;
     }
   }
+}
+
+
+.intro-archive{
+  padding-top: 7vw;
 }
 
 .container-cases{

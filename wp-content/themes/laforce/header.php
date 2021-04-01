@@ -9,6 +9,7 @@
 
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/gsap.js"></script>
     <script  src='<?php echo get_template_directory_uri();?>/assets/js/jquery.js'></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slick.js"></script>
     <script  src='<?php echo get_template_directory_uri();?>/assets/js/app.js'></script>
     <?php wp_head(); ?>
@@ -73,22 +74,22 @@
                 </div>
                 <div class="col-sm-2">
                     <ul class="social-menu row">
-                        <li class="col-sm-6">
+                        <li class="col-sm-6 col-6">
                             <a href="">
                                 Facebook
                             </a>
                         </li>
-                        <li class="col-sm-6">
+                        <li class="col-sm-6 col-6">
                             <a href="">
                                 Twitter
                             </a>
                         </li>
-                        <li class="col-sm-6">
+                        <li class="col-sm-6 col-6">
                             <a href="">
                                 Twitter
                             </a>
                         </li>
-                        <li class="col-sm-6">
+                        <li class="col-sm-6 col-6">
                             <a href="">
                                 Linkedin
                             </a>

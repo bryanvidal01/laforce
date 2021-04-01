@@ -1,0 +1,34 @@
+.page-template-about{
+  background: #2d3787;
+
+  .logo-site g{
+    fill: #ebc542;
+  }
+
+  .button-navigation{
+    color: #ebc542;
+
+    .bar{
+      background: #ebc542;
+    }
+  }
+
+  .marquee .marquee__inner{
+    color: #ebc542 !important;
+  }
+
+  .description-intro-about{
+    font-size: 22px;
+    color: #FFF;
+    margin-bottom: 5vw;
+  }
+
+  .text-more-about{
+    color: #FFF;
+    margin-top: 15vw;
+  }
+
+  .section-instagram, .footer, .sub-footer{
+    background: #2d3787;
+  }
+}
