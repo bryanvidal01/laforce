@@ -13,7 +13,29 @@ $(document).ready(function(){
 });
 
 
-window.onload = function(){
+function init(){
+
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0;
+
+    var swupDatas = $('#swup');
+    var layoutColor = swupDatas.data('color');
+    var layoutBg = swupDatas.data('bg');
+    var layoutMarquee = swupDatas.data('marquee');
+    var layoutFooter = swupDatas.data('footer');
+
+    console.log(layoutColor);
+
+    $('body').css({'background' : layoutBg});
+    $('.logo-site g').css({'fill' : layoutColor});
+    $('.marquee .marquee__inner').css({'color' : layoutMarquee});
+    $('.button-navigation').css({'color' : layoutColor});
+    $('.button-navigation .bar').css({'background' : layoutColor});
+    $('.footer').css({'background' : layoutFooter});
+    $('.sub-footer').css({'background' : layoutFooter});
+
+
+    $('body').removeClass('nav-open');
 
     if($('.listing-projects').length > 0){
         var listProjectPosition = $('.listing-projects').offset().top;
@@ -43,6 +65,8 @@ window.onload = function(){
 
                 });
             }else{
+                listProjectPosition = $('.listing-projects').offset().top;
+                listProjectHeight = $('.listing-projects').innerHeight();
                 $('.container-mockup').removeClass('fixed');
             }
 
@@ -76,9 +100,6 @@ window.onload = function(){
 
     });
 
-    $('.button-navigation').click(function(){
-        $('body').toggleClass('nav-open');
-    });
 
 
 
@@ -97,8 +118,34 @@ window.onload = function(){
         dots: true,
         draggable: false
     });
+}
 
-    const swup = new Swup();
+window.onload = function(){
+
+    $('.button-navigation').click(function(){
+        $('body').toggleClass('nav-open');
+    });
+
+    var colors = ['#2D2E82', '#583f9a', '#d96333'];
+    const randomColors = Math.floor(Math.random() * colors.length);
+
+    var animation = new SwupOverlayTheme({
+        color: ['#192373'],
+        duration: 800,
+        direction: 'to-top',
+    });
+    const swup = new Swup({
+        plugins: [animation]
+    });
+
+    init();
+
+    swup.on('pageView', init);
+    swup.on('pageLoaded', init);
+
+    /*document.addEventListener('swup:pageLoaded', (event) => {
+        init()
+    });*/
 
 }
 

@@ -9,6 +9,7 @@
 
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/gsap.js"></script>
     <script  src='<?php echo get_template_directory_uri();?>/assets/js/jquery.js'></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/SwupOverlayTheme.js"></script>
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slick.js"></script>
     <script  src='<?php echo get_template_directory_uri();?>/assets/js/app.js'></script>
@@ -37,7 +38,7 @@
 
     <ul class="navigation-first">
         <li>
-            <a href=""><span class="font_RightGrotesk-NarrowLight">À</span> <span class="font_RightGrotesk-SpatialBlack">Propos</span></a>
+            <a href="<?= get_site_url(); ?>/a-propos/"><span class="font_RightGrotesk-NarrowLight">À</span> <span class="font_RightGrotesk-SpatialBlack">Propos</span></a>
         </li>
         <li>
             <a href="<?= get_post_type_archive_link('works'); ?>"><span class="font_RightGrotesk-NarrowLight">Nos</span> <span class="font_RightGrotesk-SpatialBlack">projets</span></a>

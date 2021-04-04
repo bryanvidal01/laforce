@@ -175,10 +175,18 @@
   height: 630px;
   overflow: hidden;
 
-  img{
+  #video-hero{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
     display: block;
+  }
+
+  img{
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: none;
     width: 100%;
     height: 100%;
   }
@@ -328,12 +336,28 @@
       right: 0;
       top: 50%;
       z-index: 30;
-      height: 6vw;
-      width: 6vw;
+      height: 8vw;
+      width: 8vw;
       border: 0;
       background: #000;
       border-radius: 50%;
+      font-size: 0;
+      cursor: pointer;
       transform: translate(50%, -100%);
+
+      &:before{
+        content: '';
+        width: 1.4vw;
+        height: 3.5vw;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform:  translate(-50%, -50%) rotate(-90deg);
+        background: url('../images/arrow.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+
+      }
     }
 
     .list-images{
@@ -500,4 +524,65 @@
     text-transform: none;
   }
 
+}
+
+.scroll-button{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 470px;
+  left: 100px;
+
+  &:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-image: url('../images/rond.svg');
+    position: absolute;
+    -webkit-animation:spin 9s linear infinite;
+    -moz-animation:spin 9s linear infinite;
+    animation:spin 9s linear infinite;
+  }
+
+  &:after{
+    content: '';
+    width: 20px;
+    height: 48px;
+    //background-size: contain;
+    background-image: url('../images/arrow.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+
+.transition-fade {
+  //transition: 0.4s;
+  //transition-delay: .8s;
+  //opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  //opacity: 0;
+}
+
+.container-home{
+  .section-instagram, .footer, .sub-footer{
+    background: #583f9a !important;
+  }
+}
+.container-about{
+  .section-instagram, .footer, .sub-footer{
+    background: #2d3787 !important;
+  }
 }
