@@ -35,7 +35,9 @@
         $images = $usersItem->media_url;
         $imageID = $usersItem->id;
         $datePostTimestamp = $usersItem->timestamp;
-        $datePostTimestamp = date('Y-m-d', $datePostTimestamp);
+        //$datePostTimestamp = date('Y-m-d', $datePostTimestamp);
+
+        //var_dump($usersItem->timestamp); die;
 
         if(isset($usersItem->permalink)):
             $linkPublication = $usersItem->permalink;
@@ -54,8 +56,10 @@
             'numberposts'	=> -1,
             'post_type'		=> 'instagram',
             'meta_key'		=> 'post_instagram_id',
-            'meta_value'	=> $imageID
+            'meta_value'	=> $imageID,
+            'post_status' => 'any',
         ));
+
 
         // Si aucun post n'a le meme ID cela veut dire que le poste n'a jamais été importé. Nous l'importons
         if(empty($posts)):
@@ -65,7 +69,7 @@
                 'post_type' => 'instagram',
                 'post_name' => $titlePost,
                 'post_title' => $titlePost,
-                'post_status' => 'publish',
+                'post_status' => (strpos($images, '.jpg'))? 'publish' : 'draft',
                 'post_date' => $datePostTimestamp
             );
 
@@ -116,6 +120,8 @@ function import_image( $url, $post_id ) {
 
     return $id;
 }
+
+
 
 
 //import_post_in_wp();

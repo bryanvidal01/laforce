@@ -1,15 +1,32 @@
+<?php
+    $args = array(
+        'post_type' => 'instagram',
+        'posts_per_page' => 7,
+        'post_status' => 'publish',
+    );
+    $the_query = new WP_Query( $args );
+?>
+
 
 <section class="section-instagram">
-
+    <?php if ( $the_query->have_posts() ): ?>
     <div class="posts-insta">
-        <img src="http://fakeimg.pl/800x800/" class="image-1" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-2" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-3" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-4" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-5" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-6" alt="">
-        <img src="http://fakeimg.pl/800x800/" class="image-7" alt="">
+
+        <?php $i = 1; while ( $the_query->have_posts() ):
+            $the_query->the_post();
+            $image_instagram = get_field('image_instagram');
+
+            $image_instagram_url = '';
+            if($image_instagram){
+                $image_instagram_url = lsd_get_thumb($image_instagram, 'large');
+            }
+        ?>
+            <?php if(isset($image_instagram_url) && $image_instagram_url): ?>
+                <img src="<?= $image_instagram_url; ?>" class="image-<?= $i; ?>" alt="">
+            <?php endif; ?>
+        <?php $i++;  endwhile; ?>
     </div>
+    <?php endif; ?>
 
     <div class="container-title-section text-uppercase color-green">
         <div class="font_RightGrotesk-TightMedium">MIAM STRAM gram</div>
@@ -19,3 +36,5 @@
         </div>
     </div>
 </section>
+
+<?php wp_reset_postdata(); ?>

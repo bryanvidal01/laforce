@@ -8,8 +8,19 @@
 
 get_header();
 
+
+$work_introduction = get_field('work_introduction');
+$work_date = get_field('work_date');
+$work_category = get_field('work_category');
+$work_logo_id = get_field('work_logo');
+
+$colorProject = get_field('work_color');
+
+if($work_logo_id){
+    $work_logo_url = lsd_get_thumb($work_logo_id, 'medium');
+}
 ?>
-<div id="swup" class="transition-fade" data-bg="#fff" data-color="#ebc542" data-marquee="#ebc542" data-footer="#2d3787">
+<div id="swup" class="transition-fade" data-bg="#fff" data-color="<?= $colorProject; ?>" data-marquee="#ebc542" data-footer="#2d3787">
     <div class="intro-single container-content-case">
         <div class="container-fluid">
             <div class="row">
@@ -19,91 +30,38 @@ get_header();
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dicta modi nobis officiis perferendis quod repudiandae suscipit vel veritatis voluptate. Assumenda, aut deserunt esse fugit odit placeat tempore voluptas voluptates!
-                    </p>
+                    <?= $work_introduction; ?>
                 </div>
             </div>
             <div class="row sup-info-hero">
                 <div class="col-sm-3 col-4">
                     <div class="date font_RightGrotesk-TightMedium">
-                        2020
+                        <?= $work_date; ?>
                     </div>
                 </div>
                 <div class="col-sm-5 col-8">
                     <div class="category font_RightGrotesk-CompactBlack text-uppercase">
-                        Brand strategy <br/>
-                        Social media
+                        <?= $work_category; ?>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <img src="https://cdn.1min30.com/wp-content/uploads/2015/08/logo-oasis.png" width="150" class="logo" alt="">
+                    <?php if(isset($work_logo_url) && $work_logo_url): ?>
+                    <img src="<?= $work_logo_url ?>" width="150" class="logo" alt="">
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 
+    <?php
+    if( have_rows('work_content') ):
+        while ( have_rows('work_content') ) : the_row();
+            lsd_get_template_part('bloc', 'strate', get_row_layout());
+        endwhile;
 
-    <section class="case-single-full-image">
-        <img src="http://fakeimg.pl/2500x800/" alt="">
-    </section>
+    endif;
 
-    <section class="case-single-two-images container-content-case">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <img src="http://fakeimg.pl/600x900/" alt="">
-                </div>
-                <div class="col-sm-6">
-                    <img src="http://fakeimg.pl/600x900/" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="case-single-carrousel">
-        <div class="carousel slider">
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-            <div class="container-mockup">
-                <div class="mockupPhone">
-                    <img src="http://fakeimg.pl/400x800/">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="case-single-video-image-full-container container-content-case">
-        <iframe width="1280" height="720" src="https://www.youtube.com/embed/jpoCIIZW7BY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </section>
-
-    <section class="case-single-video-image-full-container container-content-case">
-        <img src="https://64.media.tumblr.com/7bed8273f621486faecdd407969aef51/tumblr_otfcxeacdO1slhhf0o1_1280.jpg" alt="">
-    </section>
-
+    ?>
 
     <div class="pagination-project">
         <div class="title-section-pagination">

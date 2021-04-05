@@ -16,6 +16,7 @@ require_once( __DIR__ . '/inc/configuration_security.php');
 require_once(__DIR__ . '/inc/methods.php');
 require_once(__DIR__ . '/inc/ajax-methods.php');
 
+add_action( 'importInstagramCron', 'import_post_in_wp' );
 
 // --------------------------
 // Scripts et style
@@ -40,6 +41,11 @@ function scripts_site(){
 
 // Image Sizes
 add_image_size( 'galerieSize', 400, 400, true );
+add_image_size( '2500_800', 2500, 800, true );
+add_image_size( '900_1200', 900, 1200, true );
+add_image_size( '400_800', 400, 800, true );
+add_image_size( '1920_0', 1920, 0, false );
+add_image_size( '640_780', 640, 780, true );
 
 
 

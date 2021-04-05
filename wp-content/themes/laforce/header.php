@@ -14,6 +14,31 @@
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slick.js"></script>
     <script  src='<?php echo get_template_directory_uri();?>/assets/js/app.js'></script>
     <?php wp_head(); ?>
+
+    <?php
+        if(is_single()){
+            $colorProject = get_field('work_color');
+        }
+    ?>
+
+    <?php if(isset($colorProject) && $colorProject): ?>
+        <style>
+            .logo-site g{
+                fill: <?= $colorProject; ?>;
+            }
+
+            .title-case-single,
+            .sup-info-hero,
+            .button-navigation{
+                color: <?= $colorProject; ?>;
+            }
+
+            .case-single-carrousel .slick-dots li.slick-active,
+            .button-navigation .bar{
+                background-color: <?= $colorProject; ?>;
+            }
+        </style>
+    <?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>

@@ -19,9 +19,22 @@ get_header();
 
         </div>
     </section>
+
+    <?php
+
+        $page_home_introduction = get_field('page_home_introduction');
+        $page_home_introduction_photo = get_field('page_home_introduction_photo');
+
+        if($page_home_introduction_photo){
+            $page_home_introduction_photo_url = lsd_get_thumb($page_home_introduction_photo, '2500_800');
+        }
+
+    ?>
     <section class="image-full-width-home">
-        <img src="https://images.pexels.com/photos/6563716/pexels-photo-6563716.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" width="100%" alt="">
-        <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/ezgif.com-crop.mp4" width="100%" class="hidden-xs" id="video-hero" playsinline autoplay loop muted></video>
+        <?php if(isset($page_home_introduction_photo_url) && $page_home_introduction_photo_url): ?>
+        <img src="<?= $page_home_introduction_photo_url; ?>" width="100%" alt="">
+        <?php endif; ?>
+        <video src="<?= $page_home_introduction; ?>" width="100%" class="hidden-xs" id="video-hero" playsinline autoplay loop muted></video>
     </section>
 
     <div class="section-introduction">
@@ -72,78 +85,8 @@ get_header();
         </div>
     </section>
 
-    <section class="listing-projects">
-        <div class="container-mockup">
-            <div class="mockupPhone">
-                <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/ezgif.com-crop.mp4" width="400" height="860" id="project-1" autoplay loop muted></video>
-                <video src="<?php echo get_template_directory_uri(); ?>/assets/videos/180607_A_101 (1).mp4" width="400" height="860" id="project-2" style="display: none;" autoplay loop muted></video>
-                <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="" id="project-3" style="display: none ">
-            </div>
-        </div>
-        <div class="project" data-id="project-1" data-color="#d96333">
-            <div class="container-info-project">
-                <img src="https://creathink.fr/wp-content/uploads/2020/01/Quitoque-logo-2019.png" width="150" class="logo" alt="">
-                <div class="font_RightGrotesk-Medium text-uppercase" style="color: #d96333">
-                    C'est qui
-                </div>
-                <div class="font_RightGrotesk-SpatialBlack" style="color: #d96333">
-                    Le Chef
-                </div>
-                <div class="font_RightGrotesk-Medium" style="color: #d96333">ce soir ??</div>
 
-                <p class="description-project">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                </p>
-                <div class="container-mockup-mobile visible-mobile" style="background-color: #d96333;">
-                    <div class="mockupPhone">
-                        <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="project" data-id="project-2" data-color="#2ca480">
-            <div class="container-info-project">
-                <img src="https://iconape.com/wp-content/files/zs/243142/svg/243142.svg" width="150" class="logo" alt="">
-                <div class="font_RightGrotesk-Medium text-uppercase" style="color: #2ca480">
-                    MORNING
-                </div>
-                <div class="font_RightGrotesk-SpatialBlack" style="color: #2ca480">
-                    WAKE UP
-                </div>
-                <div class="font_RightGrotesk-Medium" style="color: #2ca480">by Belvita</div>
-
-                <p class="description-project">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                </p>
-                <div class="container-mockup-mobile visible-mobile" style="background-color: #2ca480;">
-                    <div class="mockupPhone">
-                        <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="project" data-id="project-3" data-color="#2e3487">
-            <div class="container-info-project">
-                <img src="https://cdn.1min30.com/wp-content/uploads/2015/08/logo-oasis.png" width="150" class="logo" alt="">
-                <div class="font_RightGrotesk-Medium text-uppercase" style="color: #2e3487">
-                    Oasis
-                </div>
-                <div class="font_RightGrotesk-SpatialBlack" style="color: #2e3487">
-                    Social
-                </div>
-                <div class="font_RightGrotesk-Medium" style="color: #2e3487">Gaming</div>
-
-                <p class="description-project">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                </p>
-                <div class="container-mockup-mobile visible-mobile" style="background-color: #2e3487;">
-                    <div class="mockupPhone">
-                        <img src="https://images.pexels.com/photos/6401445/pexels-photo-6401445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="400" height="860" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php lsd_get_template_part('bloc', 'strate', 'last-work'); ?>
 
     <section class="section-all-works">
         <div class="text-center">
@@ -153,6 +96,12 @@ get_header();
         </div>
     </section>
 
+
+    <?php
+        $page_home_testimonials = get_field('page_home_testimonials');
+
+        if($page_home_testimonials):
+    ?>
     <section class="section-temoignage">
         <div class="container-fluid">
             <div class="text-center title-intro-section">
@@ -168,56 +117,34 @@ get_header();
             <div class="row">
                 <div class="col-sm-8 mx-auto">
                     <div class="row">
-                        <div class="col-sm-6 text-center">
-                            <div class="temoignage-container">
-                                <div class="temoignage-content">
-                                    « C’était super de bosser avec eux,
-                                    ils sont créatis et à l’écoute ! Un vrai bonheur »
+                        <?php foreach ($page_home_testimonials as $page_home_testimonial): ?>
+                            <?php if($page_home_testimonial['page_home_testimonials_testimonial']): ?>
+                                <div class="col-sm-6 text-center">
+                                    <div class="temoignage-container">
+                                        <div class="temoignage-content">
+                                            <?= $page_home_testimonial['page_home_testimonials_testimonial']; ?>
+                                        </div>
+                                        <div class="temoignage-author">
+                                            <?= $page_home_testimonial['page_home_testimonials_testimonial_author']; ?>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="temoignage-author">
-                                    Jeff Bezos, CEO Amazon
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 text-center">
-                            <div class="temoignage-container">
-                                <div class="temoignage-content">
-                                    « C’était super de bosser avec eux,
-                                    ils sont créatis et à l’écoute ! Un vrai bonheur »
-                                </div>
-                                <div class="temoignage-author">
-                                    Jeff Bezos, CEO Amazon
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 text-center">
-                            <div class="temoignage-container">
-                                <div class="temoignage-content">
-                                    « C’était super de bosser avec eux,
-                                    ils sont créatis et à l’écoute ! Un vrai bonheur »
-                                </div>
-                                <div class="temoignage-author">
-                                    Jeff Bezos, CEO Amazon
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 text-center">
-                            <div class="temoignage-container">
-                                <div class="temoignage-content">
-                                    « C’était super de bosser avec eux,
-                                    ils sont créatis et à l’écoute ! Un vrai bonheur »
-                                </div>
-                                <div class="temoignage-author">
-                                    Jeff Bezos, CEO Amazon
-                                </div>
-                            </div>
-                        </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
 
+
+
+    <?php
+        $page_home_teams = get_field('page_home_teams');
+
+        if($page_home_teams):
+    ?>
     <section class="section-team">
         <div class="text-center title-intro-section color-blue">
             Notre équipe
@@ -229,68 +156,49 @@ get_header();
             <div class="list-team">
                 <div class="container-images-teams">
                     <ul class="list-images">
+                        <?php
+                        foreach ($page_home_teams as $page_home_team):
+                            $page_home_teams_photo = $page_home_team['page_home_teams_photo'];
+
+                            if($page_home_teams_photo){
+                                $page_home_teams_photo_url = lsd_get_thumb($page_home_teams_photo, '640_780');
+                            }
+                        ?>
                         <li>
-                            <img src="http://fakeimg.pl/440x580/" alt="">
+                            <?php if(isset($page_home_teams_photo_url) && $page_home_teams_photo_url): ?>
+                            <img src="<?= $page_home_teams_photo_url; ?>" alt="">
+                            <?php endif; ?>
                         </li>
-                        <li>
-                            <img src="http://fakeimg.pl/440x580/666666" alt="">
-                        </li>
-                        <li>
-                            <img src="http://fakeimg.pl/440x580/333333" alt="">
-                        </li>
+                        <?php endforeach; ?>
+
                     </ul>
                     <div class="pagination-next"></div>
                 </div>
                 <div class="container-content-teams">
                     <ul>
-                        <li class="visible">
-                            <div class="name-team font_RightGrotesk-SpatialBlack color-blue">
-                                Olivier 1
-                            </div>
-                            <div class="subname-team font_RightGrotesk-Medium color-blue">
-                                Henry
-                            </div>
-                            <div class="function font_RightGrotesk-WideMedium">
-                                Co-funder
-                            </div>
-                            <div class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name-team font_RightGrotesk-SpatialBlack color-blue">
-                                Olivier 2
-                            </div>
-                            <div class="subname-team font_RightGrotesk-Medium color-blue">
-                                Henry
-                            </div>
-                            <div class="function font_RightGrotesk-WideMedium">
-                                Co-funder
-                            </div>
-                            <div class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            </div>
-                        </li>
-                        <li>
-                            <div class="name-team font_RightGrotesk-SpatialBlack color-blue">
-                                Olivier 3
-                            </div>
-                            <div class="subname-team font_RightGrotesk-Medium color-blue">
-                                Henry
-                            </div>
-                            <div class="function font_RightGrotesk-WideMedium">
-                                Co-funder
-                            </div>
-                            <div class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            </div>
-                        </li>
+                        <?php $membre = 0; foreach ($page_home_teams as $page_home_team): ?>
+                            <li <?= ($membre == 0)? 'class="visible"' : ''; ?>>
+                                <div class="name-team font_RightGrotesk-SpatialBlack color-blue">
+                                    <?= $page_home_team['page_home_teams_firstname']; ?>
+                                </div>
+                                <div class="subname-team font_RightGrotesk-Medium color-blue">
+                                    <?= $page_home_team['page_home_teams_name']; ?>
+                                </div>
+                                <div class="function font_RightGrotesk-WideMedium">
+                                    <?= $page_home_team['page_home_teams_post']; ?>
+                                </div>
+                                <div class="description">
+                                    <?= $page_home_team['page_home_teams_biography']; ?>
+                                </div>
+                            </li>
+                        <?php $membre ++; endforeach; ?>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
+
     <?php lsd_get_template_part('general', 'block', 'instagram'); ?>
 </div>
 <?php
