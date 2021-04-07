@@ -29,10 +29,10 @@
     <?php endif; ?>
 
     <div class="container-title-section text-uppercase color-green">
-        <div class="font_RightGrotesk-TightMedium">MIAM STRAM gram</div>
-        <div class="font_RightGrotesk-SpatialBlack">instagram</div>
+        <div class="font_RightGrotesk-TightMedium">MIAM STRAM</div>
+        <div class="font_RightGrotesk-SpatialBlack">gram</div>
         <div>
-            <a href="" class="link-insta">@lafcrceagency</a>
+            <a href="<?= get_field('params_instagram','option'); ?>" target="_blank" class="link-insta ">@lafcrceagency</a>
         </div>
     </div>
 </section>

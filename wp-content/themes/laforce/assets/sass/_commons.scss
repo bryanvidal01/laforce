@@ -278,6 +278,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      display: block;
       width: 50%;
       font-size: 3.5vw;
       line-height: 3.5vw;
@@ -318,6 +319,25 @@
     line-height: 9vw;
     margin: 4vw 0;
     text-transform: uppercase;
+    position: relative;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 55%;
+      width: 30vw;
+      height: 30vw;
+      top: -5vw;
+      background-image: url('../images/getty-images-935330702@2x.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    div{
+      position: relative;
+      z-index: 5;
+    }
   }
 
   .temoignage-container{
@@ -605,4 +625,37 @@ html.is-animating .transition-fade {
   .section-instagram, .footer, .sub-footer{
     background: #2d3787 !important;
   }
+}
+
+
+.loader-site{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 300;
+  top: 0;
+  animation: mymove 5s infinite;
+
+  svg{
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+    height: 100%;
+
+    g{
+      fill: #FFF;
+      filter: none;
+    }
+  }
+}
+
+
+@keyframes mymove {
+  0% {background-color: #d96333;}
+  25% {background-color: #2ca480;}
+  50% {background-color: #2e3487;}
+  75% {background-color: #583f9a;}
+  100% {background-color: #d96333;}
+
 }

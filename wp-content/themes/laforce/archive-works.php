@@ -22,30 +22,37 @@ get_header();
     <div class="container-cases">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6">
-                    <a href="<?= get_site_url(); ?>/works/realisation/" class="push-project">
-                        <img src="http://fakeimg.pl/1200x1200/" alt="">
-                        <div class="title-case">SushiShop - Digital Content</div>
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <a class="push-project">
-                        <img src="http://fakeimg.pl/1200x1200/" alt="">
-                        <div class="title-case">SushiShop - Digital Content</div>
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <a class="push-project">
-                        <img src="http://fakeimg.pl/1200x1200/" alt="">
-                        <div class="title-case">SushiShop - Digital Content</div>
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <a class="push-project">
-                        <img src="http://fakeimg.pl/1200x1200/" alt="">
-                        <div class="title-case">SushiShop - Digital Content</div>
-                    </a>
-                </div>
+
+
+                <?php
+
+                if ( have_posts() ) :
+
+                    while ( have_posts() ) :
+                        the_post();
+
+                        $work_image_preview = get_field('work_image_preview');
+
+                        if($work_image_preview){
+                            $work_image_preview_url = lsd_get_thumb($work_image_preview, '1200_1200');
+                        }
+                ?>
+
+                    <div class="col-sm-6">
+                        <a href="<?= get_the_permalink(); ?>" class="push-project">
+                            <?php if(isset($work_image_preview_url) && $work_image_preview_url): ?>
+                                <img src="<?= $work_image_preview_url; ?>" alt="">
+                            <?php endif; ?>
+                            <div class="title-case"><?= get_the_title(); ?></div>
+                        </a>
+                    </div>
+
+                <?php
+
+                    endwhile;
+
+                endif;
+                ?>
 
             </div>
         </div>

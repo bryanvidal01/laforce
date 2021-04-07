@@ -46,6 +46,8 @@ add_image_size( '900_1200', 900, 1200, true );
 add_image_size( '400_800', 400, 800, true );
 add_image_size( '1920_0', 1920, 0, false );
 add_image_size( '640_780', 640, 780, true );
+add_image_size( '900_900', 900, 900, true );
+add_image_size( '1200_1200', 1200, 1200, true );
 
 
 

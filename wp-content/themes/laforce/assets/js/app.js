@@ -30,15 +30,16 @@ function init(){
     $('.marquee .marquee__inner').css({'color' : layoutMarquee});
     $('.footer').css({'background' : layoutFooter});
     $('.sub-footer').css({'background' : layoutFooter});
+    $('.pagination-project').css({'background' : layoutFooter});
 
     // Single
     $('.sup-info-hero').css({'color' : layoutColor});
     $('.title-case-single').css({'color' : layoutColor});
-    setInterval(function(){
+    /*setTimeout(function(){
         if($('.case-single-carrousel .slick-dots li.slick-active').length > 0){
             $('.case-single-carrousel .slick-dots li.slick-active').css({'background': layoutColor});
         }
-    }, 1000);
+    }, 2000);*/
 
 
 
@@ -136,6 +137,12 @@ function init(){
 }
 
 window.onload = function(){
+
+    setTimeout(function(){
+        $('.loader-site').fadeOut();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0;
+    }, 1500);
 
     $('.button-navigation').click(function(){
         $('body').toggleClass('nav-open');

@@ -25,12 +25,7 @@ get_header();
             <div class="row">
                 <div class="col-sm-4 offset-sm-6">
                     <div class="description-intro-about font_RightGrotesk-WideMedium">
-                        <p>
-                        Aujourd’hui, il y a encore des annonceurs qui privilégient des videos qui sont péniblement vues par 3,5 millions de spectateurs à la TV alors qu’avec une chouette idée, on peut tout casser et réunir 45 millions de personnes sur les réseaux sociaux. C’est ce qui s’est passé avec ce Tik Tok qui a profité à la marque Ocean Spray.
-                        <br/>
-                        <br/>
-                        Si vous rêvez que votre marque soit likée, partagée et commentée, vous avez déjà fait une bonne partie du chemin puisque vous êtes ici à lire ces quelques lignes.
-                        </p>
+                        <?= get_field('page_about_introduction'); ?>
                     </div>
                 </div>
             </div>
@@ -38,24 +33,39 @@ get_header();
     </div>
 
 
-    <section class="case-single-full-image">
-        <img src="http://fakeimg.pl/2500x800/" alt="">
-    </section>
+    <?php
+        $page_about_image_full = get_field('page_about_image_full');
+
+        if($page_about_image_full){
+            $page_about_image_full_url = lsd_get_thumb($page_about_image_full, '2500_800');
+        }
+    ?>
+
+    <?php if(isset($page_about_image_full_url) && $page_about_image_full_url): ?>
+        <section class="case-single-full-image">
+            <img src="<?= $page_about_image_full_url; ?>" alt="">
+        </section>
+    <?php endif; ?>
 
     <section class="image-phone">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="<?= get_template_directory_uri(); ?>/assets/images/group-2@2x.png" width="100%">
+
+                    <?php
+                    $page_about_mockup = get_field('page_about_mockup');
+                    $page_about_text_mockup = get_field('page_about_text_mockup');
+                    if($page_about_mockup){
+                        $page_about_mockup_url = lsd_get_thumb($page_about_mockup, 'full');
+                    }
+                    ?>
+                    <?php if(isset($page_about_mockup_url) && $page_about_mockup_url): ?>
+                        <img src="<?= $page_about_mockup_url; ?>" width="100%">
+                    <?php endif; ?>
                 </div>
                 <div class="col-sm-4">
                     <div class="text-more-about">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcosit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            <br/>
-                            <br/>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        </p>
+                        <?= $page_about_text_mockup; ?>
                     </div>
 
                 </div>
@@ -63,14 +73,31 @@ get_header();
         </div>
     </section>
 
+    <?php
+        $page_about_image_left = get_field('page_about_image_left');
+
+        if(isset($page_about_image_left) && $page_about_image_left){
+            $page_about_image_left_url = lsd_get_thumb($page_about_image_left, '900_900');
+        }
+
+        $page_about_image_right = get_field('page_about_image_right');
+        if(isset($page_about_image_right) && $page_about_image_left){
+            $page_about_image_right_url = lsd_get_thumb($page_about_image_right, '900_900');
+        }
+    ?>
+
     <section class="case-single-two-images container-content-case">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="http://fakeimg.pl/900x900/" alt="">
+                    <?php if(isset($page_about_image_left_url) && $page_about_image_left_url): ?>
+                    <img src="<?= $page_about_image_left_url; ?>" alt="">
+                    <?php endif; ?>
                 </div>
                 <div class="col-sm-6">
-                    <img src="http://fakeimg.pl/900x900/" alt="">
+                    <?php if(isset($page_about_image_right_url) && $page_about_image_right_url): ?>
+                    <img src="<?= $page_about_image_right_url; ?>" alt="">
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

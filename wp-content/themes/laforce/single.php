@@ -20,7 +20,7 @@ if($work_logo_id){
     $work_logo_url = lsd_get_thumb($work_logo_id, 'medium');
 }
 ?>
-<div id="swup" class="transition-fade" data-bg="#fff" data-color="<?= $colorProject; ?>" data-marquee="#ebc542" data-footer="#2d3787">
+<div id="swup" class="transition-fade" data-bg="#fff" data-color="<?= $colorProject; ?>" data-marquee="#ebc542" data-footer="#583f9a">
     <div class="intro-single container-content-case">
         <div class="container-fluid">
             <div class="row">
@@ -68,18 +68,55 @@ if($work_logo_id){
             <span class="font_RightGrotesk-NarrowLight">À</span> <span class="font_RightGrotesk-SpatialBlack">SUIVRE</span>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <a class="push-project">
-                    <img src="http://fakeimg.pl/1200x1200/" alt="">
-                    <div class="title-case">SushiShop - Digital Content</div>
-                </a>
-            </div>
-            <div class="col-sm-6">
-                <a class="push-project">
-                    <img src="http://fakeimg.pl/1200x1200/" alt="">
-                    <div class="title-case">SushiShop - Digital Content</div>
-                </a>
-            </div>
+                <?php
+                $previousPost = get_previous_post();
+
+                if($previousPost){
+                    $previousPostID = $previousPost->ID;
+
+                    $work_image_preview_previous = get_field('work_image_preview', $previousPostID);
+
+                    if($work_image_preview_previous){
+                        $work_image_preview_previous_url = lsd_get_thumb($work_image_preview_previous, '1200_1200');
+                    }
+                }
+
+                ?>
+                <?php if(isset($previousPostID) && $previousPostID): ?>
+                <div class="col-sm-6">
+                    <a href="<?= get_the_permalink($previousPostID); ?>" class="push-project">
+                        <?php if(isset($work_image_preview_previous_url) && $work_image_preview_previous_url): ?>
+                            <img src="<?= $work_image_preview_previous_url; ?>" alt="">
+                        <?php endif; ?>
+                        <div class="title-case"><?= get_the_title($previousPostID); ?></div>
+                    </a>
+                </div>
+                <?php endif; ?>
+
+            <?php
+                $nextPost = get_next_post();
+
+                if($nextPost){
+                    $nextPostID = $nextPost->ID;
+
+                    $work_image_preview_next = get_field('work_image_preview', $nextPostID);
+
+                    if($work_image_preview_next){
+                        $work_image_preview_next_url = lsd_get_thumb($work_image_preview_next, '1200_1200');
+                    }
+                }
+
+            ?>
+            <?php if(isset($nextPostID) && $nextPostID): ?>
+                <div class="col-sm-6">
+                    <a href="<?= get_the_permalink($nextPostID); ?>" class="push-project">
+                        <?php if(isset($work_image_preview_next_url) && $work_image_preview_next_url): ?>
+                            <img src="<?= $work_image_preview_next_url; ?>" alt="">
+                        <?php endif; ?>
+                        <div class="title-case"><?= get_the_title($nextPostID); ?></div>
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

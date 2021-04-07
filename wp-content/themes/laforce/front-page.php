@@ -10,8 +10,8 @@ get_header();
 <div id="swup" class="transition-fade container-home" data-bg="#fff" data-color="#c6ff59" data-marquee="#583f9a" data-footer="#583f9a">
     <section class="hero-home">
         <div class="text-center">
-            <div class="font_RightGrotesk-TightMedium">Digital</div>
-            <div class="font_RightGrotesk-SpatialBlack">Social</div>
+            <div class="font_RightGrotesk-TightMedium">Social</div>
+            <div class="font_RightGrotesk-SpatialBlack">Content</div>
             <div><span class="font_RightGrotesk-CompactBlack">Food</span> <span class="font_RightGrotesk-TallFine">Agency</span></div>
         </div>
 
@@ -47,12 +47,12 @@ get_header();
                 <span class="font_RightGrotesk-SpatialBlack" style="margin-left: -.2vw;">Brand</span>
                 <span class="font_RightGrotesk-TightMedium" style="margin-left: -1.2vw;">Stratégy</span>
                 <span class="img-1" style="margin-left: -.1vw;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/YT_03.jpg" alt="">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/images/YT_03.jpg" alt="">
                 </span>
             </div>
             <div>
                 <span class="img-2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/apple_food02.jpg" style="margin-left: .2vw;" alt="">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/images/apple_food02.jpg" style="margin-left: .2vw;" alt="">
                 </span>
                 <span class="font_RightGrotesk-TallFine" style="margin-left: -1.25vw;">Brand</span>
                 <span class="font_RightGrotesk-CompactBlack" style="margin-left: -1.30vw;">Content</span>
@@ -61,14 +61,14 @@ get_header();
                 <span class="font_RightGrotesk-TallFine">Social</span>
                 <span class="font_RightGrotesk-SpatialBlack" style="margin-left: -0vw;">Média</span>
                 <span class="img-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/insta_03.jpg" width="370" alt="">
+                    <img src="<?= get_template_directory_uri(); ?>/assets/images/insta_03.jpg" width="370" alt="">
                 </span>
                 <span class="font_RightGrotesk-TallFine" style="margin-left: -0vw;">Activation</span>
             </div>
         </div>
 
         <div class="text-center">
-            <a href="http://localhost:8888/laforce/works/oasis-social-gaming/" class="border-dot">
+            <a href="<?= get_the_permalink(get_field('page_about', 'option')); ?>" class="border-dot">
                 <span class="font_RightGrotesk-TallFine">À</span> <span class="font_RightGrotesk-CompactBlack">Propos</span>
             </a>
         </div>
@@ -77,10 +77,10 @@ get_header();
     <section>
         <div class="marquee">
             <div class="marquee__inner color-violet" aria-hidden="true">
-                <span><strong>Nos</strong><strong>derniers</strong><strong>travaux</strong></span>
-                <span><strong>Nos</strong><strong>derniers</strong><strong>travaux</strong></span>
-                <span><strong>Nos</strong><strong>derniers</strong><strong>travaux</strong></span>
-                <span><strong>Nos</strong><strong>derniers</strong><strong>travaux</strong></span>
+                <span><strong>Nos</strong><strong>projets</strong></span>
+                <span><strong>Nos</strong><strong>projets</strong></span>
+                <span><strong>Nos</strong><strong>projets</strong></span>
+                <span><strong>Nos</strong><strong>projets</strong></span>
             </div>
         </div>
     </section>
@@ -90,8 +90,8 @@ get_header();
 
     <section class="section-all-works">
         <div class="text-center">
-            <a href="" class="border-dot color-violet">
-                <span class="font_RightGrotesk-TallFine">À</span> <span class="font_RightGrotesk-CompactBlack">Propos</span>
+            <a href="<?= get_post_type_archive_link('works'); ?>" class="border-dot color-violet">
+                <span class="font_RightGrotesk-TallFine">Nos</span> <span class="font_RightGrotesk-CompactBlack">Projets</span>
             </a>
         </div>
     </section>
@@ -105,13 +105,13 @@ get_header();
     <section class="section-temoignage">
         <div class="container-fluid">
             <div class="text-center title-intro-section">
-                Nos expertises
+                Nos clients
             </div>
 
             <div class="container-title-section">
                 <div class="font_RightGrotesk-TightMedium">Amour,</div>
-                <div class="font_RightGrotesk-SpatialBlack">Licorne</div>
-                <div class="font_RightGrotesk-NarrowLight">& chocolat</div>
+                <div class="font_RightGrotesk-SpatialBlack">Douceurs</div>
+                <div class="font_RightGrotesk-NarrowLight">& sucreries</div>
             </div>
 
             <div class="row">
@@ -147,10 +147,10 @@ get_header();
     ?>
     <section class="section-team">
         <div class="text-center title-intro-section color-blue">
-            Notre équipe
+            Équipe
         </div>
         <div class="container-title-section text-uppercase color-blue">
-            <span class="font_RightGrotesk-TightMedium">Fabulous</span><span class="font_RightGrotesk-SpatialBlack">team</span>
+            <span class="font_RightGrotesk-TightMedium">Fabuleuse</span><span class="font_RightGrotesk-SpatialBlack">team</span>
         </div>
         <div class="container-fluid">
             <div class="list-team">
