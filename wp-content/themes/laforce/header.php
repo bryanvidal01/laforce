@@ -85,8 +85,7 @@
 
                     <div class="row font_RightGrotesk-WideMedium info-contact">
                         <div class="col-sm-6">
-                            21 place des nations unies<br/>
-                            92110 Clichy
+                            231 Rue Saint-Honoré <br/>75001 Paris
                         </div>
                         <div class="col-sm-6">
                             01 45 45 59 36<br/>

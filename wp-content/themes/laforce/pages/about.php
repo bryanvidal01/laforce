@@ -23,7 +23,7 @@ get_header();
     <div class="container-content-case">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4 offset-sm-6">
+                <div class="col-sm-6 offset-sm-6">
                     <div class="description-intro-about font_RightGrotesk-WideMedium">
                         <?= get_field('page_about_introduction'); ?>
                     </div>

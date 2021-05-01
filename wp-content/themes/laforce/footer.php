@@ -34,7 +34,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                <img src="http://fakeimg.pl/300x150/" alt="">
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/footer-image.jpg" alt="">
                 <span class="font_RightGrotesk-TightMedium color-green">©</span><span class="font_RightGrotesk-SpatialBlack">2021</span>
             </div>
         </footer>

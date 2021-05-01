@@ -56,10 +56,12 @@ get_header();
                 </span>
                 <span class="font_RightGrotesk-TallFine" style="margin-left: -1.25vw;">Brand</span>
                 <span class="font_RightGrotesk-CompactBlack" style="margin-left: -1.30vw;">Content</span>
+                <span class="font_RightGrotesk-TallFine" style="margin-left: -1.4vw">SOCIAL MEDIA</span>
             </div>
             <div>
-                <span class="font_RightGrotesk-TallFine">Social</span>
-                <span class="font_RightGrotesk-SpatialBlack" style="margin-left: -0vw;">Média</span>
+                <span class="font_RightGrotesk-TallFine" style="margin-right: .5vw;">Brand</span>
+                <span class="font_RightGrotesk-TightMedium" style="margin-right: .5vw;">&</span>
+                <span class="font_RightGrotesk-CompactBlack" style="margin-left: -0vw;">Social</span>
                 <span class="img-3">
                     <img src="<?= get_template_directory_uri(); ?>/assets/images/insta_03.jpg" width="370" alt="">
                 </span>

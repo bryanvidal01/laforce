@@ -66,6 +66,10 @@
     line-height: 3.5vw;
   }
 
+  p{
+    opacity: .7;
+  }
+
   .sup-info-hero{
     border-top: 1px solid #e1e1e1;
     margin-top: 4vw;
@@ -74,10 +78,11 @@
 
     .date{
       font-size: 2.3vw;
+      line-height: 2.3vw;
     }
     .category{
       font-size: 1.6vw;
-      line-height: 1.6vw;
+      line-height: 2.3vw;
     }
     .logo{
       width: auto;
